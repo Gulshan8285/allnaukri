@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { jobs } from "./jobs";
 import { results, schemes } from "./updates";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allnaukri.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allnaukri.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

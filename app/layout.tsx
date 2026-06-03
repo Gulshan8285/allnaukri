@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "./site-chrome";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allnaukri.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allnaukri.in";
 const siteName = "All Naukri";
 const siteDescription =
   "All Naukri brings All Jobs, All Sarkari Naukri, All Result, Sarkari Yojna and government job updates in one place.";
