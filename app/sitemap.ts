@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/sarkari-yojna",
     "/results",
     "/vlog",
+    "/admit-cards",
     "/about-us",
     "/contact",
     "/privacy-policy",

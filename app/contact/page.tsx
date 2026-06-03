@@ -2,7 +2,10 @@ import { Mail } from "lucide-react";
 
 export const metadata = {
   title: "Contact | All Naukri Update",
-  description: "Contact All Naukri Update for correction requests, feedback and general queries."
+  description: "Contact All Naukri Update for correction requests, feedback and general queries.",
+  alternates: {
+    canonical: "/contact"
+  }
 };
 
 export default function ContactPage() {

@@ -2,7 +2,10 @@ import { ShieldCheck } from "lucide-react";
 
 export const metadata = {
   title: "Privacy Policy | All Naukri Update",
-  description: "Read the privacy policy for All Naukri Update."
+  description: "Read the privacy policy for All Naukri Update.",
+  alternates: {
+    canonical: "/privacy-policy"
+  }
 };
 
 export default function PrivacyPolicyPage() {

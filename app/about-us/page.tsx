@@ -2,7 +2,10 @@ import { BookOpenCheck } from "lucide-react";
 
 export const metadata = {
   title: "About Us | All Naukri Update",
-  description: "Learn about All Naukri Update and how we publish student and government updates."
+  description: "Learn about All Naukri Update and how we publish student and government updates.",
+  alternates: {
+    canonical: "/about-us"
+  }
 };
 
 export default function AboutUsPage() {

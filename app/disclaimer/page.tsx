@@ -2,7 +2,10 @@ import { AlertTriangle } from "lucide-react";
 
 export const metadata = {
   title: "Disclaimer | All Naukri Update",
-  description: "Read the disclaimer for All Naukri Update."
+  description: "Read the disclaimer for All Naukri Update.",
+  alternates: {
+    canonical: "/disclaimer"
+  }
 };
 
 export default function DisclaimerPage() {

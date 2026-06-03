@@ -2,7 +2,10 @@ import { FileText } from "lucide-react";
 
 export const metadata = {
   title: "Terms | All Naukri Update",
-  description: "Read the terms of use for All Naukri Update."
+  description: "Read the terms of use for All Naukri Update.",
+  alternates: {
+    canonical: "/terms"
+  }
 };
 
 export default function TermsPage() {
