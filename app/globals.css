@@ -1590,6 +1590,7 @@ html[data-theme="dark"] .blogCard {
   display: grid;
   gap: 8px;
   align-content: start;
+  min-width: 0;
   min-height: 145px;
   padding: 22px;
   background: rgba(255, 255, 255, 0.42);
@@ -1610,6 +1611,7 @@ html[data-theme="dark"] .blogCard {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .vlogOfficial {
@@ -1617,11 +1619,14 @@ html[data-theme="dark"] .blogCard {
   grid-template-columns: minmax(0, 1fr) auto auto;
   gap: 14px;
   align-items: end;
+  min-width: 0;
+  overflow: hidden;
   padding: 24px;
 }
 
 .vlogOfficial h2 {
   font-size: 22px;
+  overflow-wrap: anywhere;
 }
 
 .vlogOfficial p {
@@ -1637,13 +1642,15 @@ html[data-theme="dark"] .blogCard {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-width: 0;
   min-height: 42px;
   padding: 0 15px;
   border: 1px solid rgba(17, 24, 39, 0.1);
   border-radius: 8px;
   font-size: 14px;
   font-weight: 900;
-  white-space: nowrap;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .vlogOfficial a:first-of-type {
@@ -2259,5 +2266,24 @@ html[data-theme="dark"] .blogCard {
 
   .vlogOfficial {
     align-items: stretch;
+    padding: 18px;
+  }
+
+  .vlogOfficial a {
+    width: 100%;
+    min-height: 52px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .vlogOfficial h2 {
+    font-size: clamp(24px, 8vw, 34px);
+    line-height: 1.1;
+  }
+
+  .vlogSummary strong {
+    font-size: 13px;
   }
 }
