@@ -1403,6 +1403,181 @@ html[data-theme="dark"] .blogCard {
   padding-left: 20px;
 }
 
+.yojnaArticleGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+  gap: 16px;
+  margin: 8px 0 10px;
+}
+
+.yojnaTableCard {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(8, 199, 223, 0.06), transparent 46%),
+    rgba(255, 255, 255, 0.34);
+}
+
+.yojnaMiniHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.yojnaMiniHead svg {
+  color: var(--cyan);
+}
+
+.yojnaMiniHead h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.yojnaTableWrap {
+  overflow-x: auto;
+}
+
+.yojnaTable {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.yojnaTable th,
+.yojnaTable td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.yojnaTable tr:last-child th,
+.yojnaTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.yojnaTable th {
+  width: 190px;
+  color: var(--ink);
+  font-weight: 950;
+}
+
+.yojnaTable td {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.yojnaTable thead th {
+  color: #04151d;
+  background: rgba(8, 199, 223, 0.16);
+}
+
+.yojnaHighlightCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.yojnaHighlightCard p {
+  margin: 0;
+  padding: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.yojnaBadgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding: 0 18px 18px;
+}
+
+.yojnaBadgeList span {
+  padding: 7px 10px;
+  border: 1px solid rgba(8, 199, 223, 0.22);
+  border-radius: 999px;
+  color: #008ca1;
+  background: rgba(8, 199, 223, 0.1);
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.yojnaPointGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.yojnaPointCard,
+.yojnaStepCard {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.yojnaPointCard {
+  padding: 16px;
+}
+
+.yojnaPointCard span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.yojnaPointCard p,
+.yojnaStepCard p,
+.yojnaNote p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.yojnaStepGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.yojnaStepCard {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 16px;
+}
+
+.yojnaStepCard strong {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: #04151d;
+  background: var(--cyan);
+  font-size: 14px;
+}
+
+.yojnaNote {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid rgba(8, 199, 223, 0.24);
+  border-radius: 8px;
+  background: rgba(8, 199, 223, 0.08);
+}
+
 .vlogSummary {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1697,6 +1872,12 @@ html[data-theme="dark"] .blogCard {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .yojnaArticleGrid,
+  .yojnaPointGrid,
+  .yojnaStepGrid {
+    grid-template-columns: 1fr;
+  }
+
   .sectionHead {
     align-items: flex-start;
     flex-direction: column;
@@ -1966,6 +2147,31 @@ html[data-theme="dark"] .blogCard {
 
   .vlogGrid {
     grid-template-columns: 1fr;
+  }
+
+  .vlogHero,
+  .vlogContent {
+    padding: 20px;
+  }
+
+  .vlogHero h1 {
+    font-size: clamp(27px, 8vw, 38px);
+  }
+
+  .yojnaTable {
+    min-width: 440px;
+    font-size: 13px;
+  }
+
+  .yojnaTable th,
+  .yojnaTable td {
+    padding: 12px;
+  }
+
+  .yojnaPointCard,
+  .yojnaStepCard,
+  .yojnaNote {
+    padding: 14px;
   }
 
   .stateCard {

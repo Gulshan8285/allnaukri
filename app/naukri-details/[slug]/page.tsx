@@ -2,6 +2,7 @@ import {
   ArrowLeft,
   CalendarDays,
   CheckCircle2,
+  ClipboardList,
   ExternalLink,
   FileText,
   Gift,
@@ -61,6 +62,19 @@ export default async function NaukriDetailsPage({
   }
 
   const details = buildDetails(scheme);
+  const overviewRows = [
+    ["Yojna Name", scheme.title],
+    ["Department", scheme.org],
+    ["State", scheme.state],
+    ["Current Status", scheme.date],
+    ["Official Action", scheme.actionText]
+  ];
+  const documentRows = [
+    ["Identity", "Aadhaar card, mobile number ya official ID details"],
+    ["Address", "Residence proof ya state/district related document"],
+    ["Bank", "Bank account, IFSC aur beneficiary payment details"],
+    ["Eligibility", "Income, category, student/beneficiary ya course details as per yojna"]
+  ];
 
   return (
     <main className="vlogPage">
@@ -93,6 +107,40 @@ export default async function NaukriDetailsPage({
             </div>
           </div>
 
+          <section className="yojnaArticleGrid" aria-label="Yojna overview">
+            <div className="yojnaTableCard">
+              <div className="yojnaMiniHead">
+                <ClipboardList size={18} />
+                <h3>Quick Overview</h3>
+              </div>
+              <div className="yojnaTableWrap">
+                <table className="yojnaTable">
+                  <tbody>
+                    {overviewRows.map(([label, value]) => (
+                      <tr key={label}>
+                        <th scope="row">{label}</th>
+                        <td>{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="yojnaTableCard yojnaHighlightCard">
+              <div className="yojnaMiniHead">
+                <ShieldCheck size={18} />
+                <h3>Benefit Check</h3>
+              </div>
+              <p>{scheme.summary}</p>
+              <div className="yojnaBadgeList">
+                <span>{scheme.type}</span>
+                <span>{scheme.state}</span>
+                <span>{scheme.date}</span>
+              </div>
+            </div>
+          </section>
+
           {details.sections.map((section) => (
             <section className="vlogBlock" key={section.title}>
               <h3>{section.title}</h3>
@@ -102,29 +150,57 @@ export default async function NaukriDetailsPage({
 
           <section className="vlogBlock">
             <h3>Important Points</h3>
-            <ul>
-              {scheme.details.map((item) => (
-                <li key={item}>{item}</li>
+            <div className="yojnaPointGrid">
+              {scheme.details.map((item, index) => (
+                <div className="yojnaPointCard" key={item}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{item}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </section>
 
           <section className="vlogBlock">
             <h3>Apply / Status Process</h3>
-            <ul>
-              {scheme.steps.map((item) => (
-                <li key={item}>{item}</li>
+            <div className="yojnaStepGrid">
+              {scheme.steps.map((item, index) => (
+                <div className="yojnaStepCard" key={item}>
+                  <strong>{index + 1}</strong>
+                  <p>{item}</p>
+                </div>
               ))}
-            </ul>
+            </div>
+          </section>
+
+          <section className="vlogBlock">
+            <h3>Required Documents Table</h3>
+            <div className="yojnaTableWrap">
+              <table className="yojnaTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Document Type</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {documentRows.map(([label, value]) => (
+                    <tr key={label}>
+                      <th scope="row">{label}</th>
+                      <td>{value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section className="vlogBlock">
             <h3>Apply Karne Se Pehle</h3>
-            <ul>
-              <li>Eligibility, benefit amount, documents aur dates official website par verify karein.</li>
-              <li>Personal, Aadhaar, bank aur education details carefully match karein.</li>
-              <li>Submit ke baad acknowledgement ya application number save rakhein.</li>
-            </ul>
+            <div className="yojnaNote">
+              <p>Eligibility, benefit amount, documents aur dates official website par verify karein.</p>
+              <p>Personal, Aadhaar, bank aur education details carefully match karein.</p>
+              <p>Submit ke baad acknowledgement ya application number save rakhein.</p>
+            </div>
           </section>
         </section>
 
