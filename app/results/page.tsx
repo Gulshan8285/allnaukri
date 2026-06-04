@@ -1,6 +1,5 @@
-import { FileCheck2 } from "lucide-react";
-import { UpdateDirectoryFilters } from "../update-directory-filters";
-import { results } from "../updates";
+import { ArrowLeft, Clock3, FileCheck2 } from "lucide-react";
+import Link from "next/link";
 
 export const metadata = {
   title: "All Result - Sarkari Result and Exam Result Updates",
@@ -14,28 +13,31 @@ export const metadata = {
 
 export default function ResultsPage() {
   return (
-    <main className="directoryPage">
-      <section className="container directoryHero">
+    <main className="notFoundPage">
+      <section className="container notFoundPanel softPanel">
         <span className="iconBubble">
-          <FileCheck2 size={19} />
+          <FileCheck2 size={22} />
         </span>
-        <div>
-          <span className="chip">Results</span>
-          <h1>All Result aur latest Sarkari Result updates</h1>
-          <p>
-            Result name se search karein, state select karein, phir detail page par jaakar official
-            website par result check karein.
-          </p>
+        <span className="chip">Results</span>
+        <h1>Coming Soon</h1>
+        <p>
+          Results section abhi prepare ho raha hai. Latest Sarkari Result, board result aur exam
+          result updates jald hi yahan add kiye jayenge.
+        </p>
+        <div className="comingSoonMeta">
+          <span>
+            <Clock3 size={15} />
+            Update coming soon
+          </span>
+          <span>All Result</span>
+        </div>
+        <div className="notFoundActions">
+          <Link href="/">
+            <ArrowLeft size={16} />
+            Back to Home
+          </Link>
         </div>
       </section>
-
-      <UpdateDirectoryFilters
-        detailBasePath="/results"
-        emptyText="Search text ya state filter change karke phir try karein."
-        items={results}
-        searchPlaceholder="Result name se search karein"
-        unitLabel="result"
-      />
     </main>
   );
 }
