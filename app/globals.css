@@ -1018,21 +1018,26 @@ html[data-theme="dark"] .blogCard {
 }
 
 .legalContent {
+  display: grid;
+  gap: 14px;
   padding: 28px;
 }
 
 .legalBlock {
-  padding: 22px 0;
-  border-top: 1px solid var(--line);
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(8, 199, 223, 0.05), transparent 52%),
+    rgba(255, 255, 255, 0.36);
 }
 
 .legalBlock:first-child {
-  padding-top: 0;
-  border-top: 0;
+  padding-top: 20px;
 }
 
 .legalBlock:last-child {
-  padding-bottom: 0;
+  padding-bottom: 20px;
 }
 
 .legalBlock h2,
@@ -1042,7 +1047,21 @@ html[data-theme="dark"] .blogCard {
 }
 
 .legalBlock h2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 22px;
+}
+
+.legalBlock h2::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow: 0 0 0 6px rgba(8, 199, 223, 0.12);
 }
 
 .legalBlock p,
@@ -1052,16 +1071,42 @@ html[data-theme="dark"] .blogCard {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 .legalBlock ul {
   display: grid;
-  gap: 8px;
-  padding-left: 18px;
+  gap: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.legalBlock li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.legalBlock li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--cyan);
+  transform: translateY(-50%);
 }
 
 .legalBlock strong {
   color: var(--ink);
+}
+
+.legalBlock a {
+  color: #008ca1;
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .aboutIntro {
@@ -2493,7 +2538,31 @@ html[data-theme="dark"] .blogCard {
   }
 
   .legalContent {
+    gap: 12px;
     padding: 20px;
+  }
+
+  .legalBlock {
+    padding: 16px;
+  }
+
+  .legalBlock:first-child {
+    padding-top: 16px;
+  }
+
+  .legalBlock:last-child {
+    padding-bottom: 16px;
+  }
+
+  .legalBlock h2 {
+    font-size: 19px;
+    line-height: 1.2;
+  }
+
+  .legalBlock p,
+  .legalBlock ul {
+    font-size: 13px;
+    line-height: 1.7;
   }
 
   .aboutIntro {
