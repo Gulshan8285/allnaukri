@@ -113,7 +113,7 @@ export default function PrivacyPolicyPage() {
               If you have any questions regarding this Privacy Policy, please contact us at:
             </p>
             <p>
-              Email: <a href="mailto:your-Gulshanyadav62000@gmail.com">your-Gulshanyadav62000@gmail.com</a>
+              Email: <a href="mailto:Gulshanyadav62000@gmail.com">Gulshanyadav62000@gmail.com</a>
             </p>
           </section>
         </article>

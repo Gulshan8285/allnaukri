@@ -71,7 +71,7 @@ export default function ContactPage() {
               available on our website, feel free to contact us.
             </p>
             <p>
-              Email: <strong>your-Gulshanyadav62000@gmail.com</strong>
+              Email: <strong>Gulshanyadav62000@gmail.com</strong>
             </p>
             <p>
               We will do our best to respond as soon as possible.

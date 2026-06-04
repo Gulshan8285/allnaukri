@@ -121,7 +121,7 @@ export default function TermsPage() {
             <h2>Contact Us</h2>
             <p>If you have any questions regarding these Terms and Conditions, please contact us:</p>
             <p>
-              Email: <a href="mailto:your-Gulshanyadav62000@gmail.com">your-Gulshanyadav62000@gmail.com</a>
+              Email: <a href="mailto:Gulshanyadav62000@gmail.com">Gulshanyadav62000@gmail.com</a>
             </p>
           </section>
         </article>
