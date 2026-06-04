@@ -24,11 +24,13 @@ html[data-theme="dark"] {
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   display: flex;
+  overflow-x: hidden;
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
@@ -1324,9 +1326,11 @@ html[data-theme="dark"] .blogCard {
 .vlogShell {
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .vlogHero {
+  min-width: 0;
   padding: 30px;
 }
 
@@ -1336,6 +1340,7 @@ html[data-theme="dark"] .blogCard {
   font-size: clamp(34px, 6vw, 60px);
   line-height: 1;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .vlogHero p {
@@ -1344,9 +1349,12 @@ html[data-theme="dark"] .blogCard {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
+  overflow-wrap: anywhere;
 }
 
 .vlogContent {
+  min-width: 0;
+  overflow: hidden;
   padding: 26px 30px;
 }
 
@@ -1411,6 +1419,7 @@ html[data-theme="dark"] .blogCard {
 }
 
 .yojnaTableCard {
+  min-width: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1517,6 +1526,7 @@ html[data-theme="dark"] .blogCard {
 
 .yojnaPointCard,
 .yojnaStepCard {
+  min-width: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.34);
@@ -1541,6 +1551,7 @@ html[data-theme="dark"] .blogCard {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 
 .yojnaStepGrid {
@@ -2152,27 +2163,120 @@ html[data-theme="dark"] .blogCard {
     grid-template-columns: 1fr;
   }
 
+  .vlogPage {
+    padding: 18px 0 42px;
+  }
+
+  .vlogShell {
+    gap: 12px;
+  }
+
   .vlogGrid {
     grid-template-columns: 1fr;
   }
 
   .vlogHero,
   .vlogContent {
-    padding: 20px;
+    padding: 18px;
   }
 
   .vlogHero h1 {
-    font-size: clamp(27px, 8vw, 38px);
+    font-size: clamp(24px, 7.2vw, 32px);
+    line-height: 1.08;
+  }
+
+  .vlogHero p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .detailMeta {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .detailMeta span {
+    max-width: 100%;
+    padding: 8px 10px;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .vlogLead {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .vlogLead .iconBubble {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+  }
+
+  .vlogLead h2 {
+    font-size: clamp(24px, 7.4vw, 32px);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+
+  .vlogLead p,
+  .vlogBlock p,
+  .vlogBlock ul {
+    font-size: 13px;
+  }
+
+  .vlogBlock {
+    padding: 18px 0;
+  }
+
+  .vlogBlock h3 {
+    font-size: 18px;
+  }
+
+  .yojnaTableWrap {
+    overflow: visible;
+  }
+
+  .yojnaTable,
+  .yojnaTable thead,
+  .yojnaTable tbody,
+  .yojnaTable tr,
+  .yojnaTable th,
+  .yojnaTable td {
+    display: block;
+    width: 100%;
+    min-width: 0;
   }
 
   .yojnaTable {
-    min-width: 440px;
     font-size: 13px;
+  }
+
+  .yojnaTable thead {
+    display: none;
+  }
+
+  .yojnaTable tr {
+    padding: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .yojnaTable tr:last-child {
+    border-bottom: 0;
   }
 
   .yojnaTable th,
   .yojnaTable td {
-    padding: 12px;
+    padding: 0;
+    border-bottom: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .yojnaTable th {
+    margin-bottom: 6px;
+    font-size: 12px;
+    text-transform: uppercase;
   }
 
   .yojnaPointCard,
