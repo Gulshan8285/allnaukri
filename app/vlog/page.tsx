@@ -1,4 +1,4 @@
-import { BookOpen, CalendarDays, Gift } from "lucide-react";
+import { BookOpen, CalendarDays } from "lucide-react";
 import Link from "next/link";
 import { schemes } from "../updates";
 
@@ -29,22 +29,17 @@ export default function VlogPage() {
       <section className="container vlogGrid" aria-label="Latest All Sarkari Yojna">
         {schemes.map((scheme) => (
           <Link className="jobCardLink" href={`/naukri-details/${scheme.slug}`} key={scheme.slug}>
-            <article className="blogCard">
-              <div className="blogArt">
-                <Gift size={32} />
-              </div>
-              <div className="blogBody">
-                <span>{scheme.type}</span>
-                <h3>{scheme.title} Details</h3>
-                <p>{scheme.summary} Eligibility, benefits, documents aur apply process simple language me.</p>
-                <footer>
-                  <small>{scheme.org}</small>
-                  <small>
-                    <CalendarDays size={12} />
-                    {scheme.date}
-                  </small>
-                </footer>
-              </div>
+            <article className="noticeCard">
+              <span className="chip">{scheme.type}</span>
+              <h3>{scheme.title}</h3>
+              <p>{scheme.summary}</p>
+              <footer>
+                <span>{scheme.org}</span>
+                <span>
+                  <CalendarDays size={13} />
+                  {scheme.date}
+                </span>
+              </footer>
             </article>
           </Link>
         ))}

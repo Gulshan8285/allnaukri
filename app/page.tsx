@@ -120,25 +120,20 @@ export default function Home() {
         subtitle="Yojna update ko complete details format me padhein"
         icon={<BookOpen size={19} />}
       >
-        <div className="cardRail blogRail">
+        <div className="cardRail">
           {schemes.map((scheme) => (
             <Link className="jobCardLink" href={`/naukri-details/${scheme.slug}`} key={scheme.slug}>
-              <article className="blogCard">
-                <div className="blogArt">
-                  <Gift size={32} />
-                </div>
-                <div className="blogBody">
-                  <span>{scheme.type}</span>
-                  <h3>{scheme.title} Details</h3>
-                  <p>{scheme.summary} Eligibility, benefits, documents aur apply process simple language me.</p>
-                  <footer>
-                    <small>{scheme.org}</small>
-                    <small>
-                      <CalendarDays size={12} />
-                      {scheme.date}
-                    </small>
-                  </footer>
-                </div>
+              <article className="noticeCard">
+                <span className="chip">{scheme.type}</span>
+                <h3>{scheme.title}</h3>
+                <p>{scheme.summary}</p>
+                <footer>
+                  <span>{scheme.org}</span>
+                  <span>
+                    <CalendarDays size={13} />
+                    {scheme.date}
+                  </span>
+                </footer>
               </article>
             </Link>
           ))}

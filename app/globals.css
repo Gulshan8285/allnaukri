@@ -878,6 +878,10 @@ html[data-theme="dark"] .blogCard {
   transform: translateY(-3px);
 }
 
+.vlogGrid .noticeCard {
+  min-height: 240px;
+}
+
 .bottomStrip {
   flex: 0 0 auto;
   padding: 40px 0 0;
