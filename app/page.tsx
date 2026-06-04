@@ -116,7 +116,7 @@ export default function Home() {
       </DashboardSection>
 
       <DashboardSection
-        title="Sarkari Yojna Details"
+        title="Latest All Sarkari Yojna"
         subtitle="Yojna update ko complete details format me padhein"
         icon={<BookOpen size={19} />}
       >

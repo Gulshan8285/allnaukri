@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!scheme) {
     return {
-      title: "Sarkari Yojna Details Not Found"
+      title: "Latest All Sarkari Yojna Not Found"
     };
   }
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       `${scheme.title} details`,
       scheme.type,
       scheme.state,
-      "Sarkari Yojna Details",
+      "Latest All Sarkari Yojna",
       "Government Schemes",
       "All Naukri",
       "Yojna Updates"
@@ -88,7 +88,7 @@ export default async function NaukriDetailsPage({
               <Gift size={19} />
             </span>
             <div>
-              <h2>Sarkari Yojna Details</h2>
+              <h2>Latest All Sarkari Yojna</h2>
               <p>Is yojna update ko short, clear aur student-friendly format me samjhaya gaya hai.</p>
             </div>
           </div>
