@@ -1064,6 +1064,141 @@ html[data-theme="dark"] .blogCard {
   color: var(--ink);
 }
 
+.aboutIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.36fr);
+  gap: 18px;
+  align-items: stretch;
+  padding-bottom: 24px;
+}
+
+.aboutIntro h2,
+.aboutIntro p,
+.aboutInfoCard h3,
+.aboutInfoCard p,
+.aboutMission h2,
+.aboutMission p,
+.aboutTrustBox p {
+  margin: 0;
+}
+
+.aboutIntro h2 {
+  margin-top: 12px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+}
+
+.aboutIntro p {
+  max-width: 760px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.aboutTrustBox,
+.aboutInfoCard,
+.aboutPoint,
+.aboutMission {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(8, 199, 223, 0.06), transparent 55%),
+    rgba(255, 255, 255, 0.38);
+}
+
+.aboutTrustBox {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 18px;
+}
+
+.aboutTrustBox svg {
+  color: var(--cyan);
+}
+
+.aboutTrustBox strong {
+  font-size: 16px;
+}
+
+.aboutTrustBox p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aboutCardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.aboutInfoCard {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-height: 190px;
+  padding: 16px;
+}
+
+.aboutInfoCard h3 {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.aboutInfoCard p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.aboutPointGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.aboutPoint {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px;
+}
+
+.aboutPoint svg {
+  flex: 0 0 auto;
+  color: var(--cyan);
+}
+
+.aboutPoint span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.55;
+}
+
+.aboutMission {
+  margin-top: 24px;
+  padding: 22px;
+}
+
+.aboutMission h2 {
+  margin-top: 12px;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.1;
+}
+
+.aboutMission p {
+  max-width: 860px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
 .directoryHero {
   display: flex;
   gap: 16px;
@@ -1925,7 +2060,10 @@ html[data-theme="dark"] .blogCard {
 
   .yojnaArticleGrid,
   .yojnaPointGrid,
-  .yojnaStepGrid {
+  .yojnaStepGrid,
+  .aboutIntro,
+  .aboutCardGrid,
+  .aboutPointGrid {
     grid-template-columns: 1fr;
   }
 
@@ -2356,6 +2494,23 @@ html[data-theme="dark"] .blogCard {
 
   .legalContent {
     padding: 20px;
+  }
+
+  .aboutIntro {
+    padding-bottom: 18px;
+  }
+
+  .aboutIntro h2,
+  .aboutMission h2 {
+    font-size: clamp(24px, 7.4vw, 32px);
+  }
+
+  .aboutInfoCard {
+    min-height: 0;
+  }
+
+  .aboutMission {
+    padding: 18px;
   }
 
   .notFoundPanel {
