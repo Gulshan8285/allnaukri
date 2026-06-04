@@ -4,43 +4,46 @@ import {
   CheckCircle2,
   ExternalLink,
   FileText,
+  Gift,
+  MapPin,
   ShieldCheck
 } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getJobBySlug, jobs } from "../../jobs";
+import { getSchemeBySlug, schemes } from "../../updates";
 
-type Job = (typeof jobs)[number];
+type Scheme = (typeof schemes)[number];
 
 export function generateStaticParams() {
-  return jobs.map((job) => ({
-    slug: job.slug
+  return schemes.map((scheme) => ({
+    slug: scheme.slug
   }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const job = getJobBySlug(slug);
+  const scheme = getSchemeBySlug(slug);
 
-  if (!job) {
+  if (!scheme) {
     return {
-      title: "Naukri Details Not Found"
+      title: "Sarkari Yojna Details Not Found"
     };
   }
 
   return {
-    title: `${job.title} Full Details | All Jobs`,
-    description: `${job.title} eligibility, dates, fee, vacancy and official apply process in complete details format on All Naukri.`,
+    title: `${scheme.title} Details | Sarkari Yojna`,
+    description: `${scheme.title} eligibility, benefits, documents, status and official apply process in complete details format on All Naukri.`,
     keywords: [
-      `${job.title} full details`,
-      job.type,
-      "All Jobs",
+      `${scheme.title} details`,
+      scheme.type,
+      scheme.state,
+      "Sarkari Yojna Details",
+      "Government Schemes",
       "All Naukri",
-      "Sarkari Naukri Details",
-      "Government Job Updates"
+      "Yojna Updates"
     ],
     alternates: {
-      canonical: `/naukri-details/${job.slug}`
+      canonical: `/naukri-details/${scheme.slug}`
     }
   };
 }
@@ -51,26 +54,30 @@ export default async function NaukriDetailsPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const job = getJobBySlug(slug);
+  const scheme = getSchemeBySlug(slug);
 
-  if (!job) {
+  if (!scheme) {
     notFound();
   }
 
-  const details = buildDetails(job);
+  const details = buildDetails(scheme);
 
   return (
     <main className="vlogPage">
       <article className="container vlogShell">
         <header className="vlogHero softPanel">
-          <span className="chip">{job.type} Details</span>
-          <h1>{job.title} ka complete update</h1>
+          <span className="chip">{scheme.type} Details</span>
+          <h1>{scheme.title} ka complete update</h1>
           <p>{details.intro}</p>
           <div className="detailMeta">
-            <span>{job.org}</span>
+            <span>{scheme.org}</span>
+            <span>
+              <MapPin size={15} />
+              {scheme.state}
+            </span>
             <span>
               <CalendarDays size={15} />
-              Last date: {job.date}
+              {scheme.date}
             </span>
           </div>
         </header>
@@ -78,11 +85,11 @@ export default async function NaukriDetailsPage({
         <section className="vlogContent softPanel">
           <div className="vlogLead">
             <span className="iconBubble">
-              <FileText size={19} />
+              <Gift size={19} />
             </span>
             <div>
-              <h2>Complete Details</h2>
-              <p>Is job update ko short, clear aur student-friendly format me samjhaya gaya hai.</p>
+              <h2>Sarkari Yojna Details</h2>
+              <p>Is yojna update ko short, clear aur student-friendly format me samjhaya gaya hai.</p>
             </div>
           </div>
 
@@ -94,29 +101,29 @@ export default async function NaukriDetailsPage({
           ))}
 
           <section className="vlogBlock">
-            <h3>Important Dates</h3>
+            <h3>Important Points</h3>
             <ul>
-              {job.importantDates.map((item) => (
+              {scheme.details.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </section>
 
           <section className="vlogBlock">
-            <h3>Selection Process</h3>
+            <h3>Apply / Status Process</h3>
             <ul>
-              {job.selectionProcess.map((item) => (
+              {scheme.steps.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </section>
 
           <section className="vlogBlock">
-            <h3>Apply Karne Ka Tarika</h3>
+            <h3>Apply Karne Se Pehle</h3>
             <ul>
-              {job.howToApply.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
+              <li>Eligibility, benefit amount, documents aur dates official website par verify karein.</li>
+              <li>Personal, Aadhaar, bank aur education details carefully match karein.</li>
+              <li>Submit ke baad acknowledgement ya application number save rakhein.</li>
             </ul>
           </section>
         </section>
@@ -124,18 +131,18 @@ export default async function NaukriDetailsPage({
         <aside className="vlogSummary softPanel" aria-label="Quick summary">
           <div>
             <FileText size={21} />
-            <span>Total Vacancy</span>
-            <strong>{job.vacancies}</strong>
+            <span>Yojna Type</span>
+            <strong>{scheme.type}</strong>
           </div>
           <div>
             <CheckCircle2 size={21} />
-            <span>Qualification</span>
-            <strong>{job.qualification}</strong>
+            <span>State</span>
+            <strong>{scheme.state}</strong>
           </div>
           <div>
             <ShieldCheck size={21} />
-            <span>Application Fee</span>
-            <strong>{job.fee}</strong>
+            <span>Status</span>
+            <strong>{scheme.date}</strong>
           </div>
         </aside>
 
@@ -144,12 +151,12 @@ export default async function NaukriDetailsPage({
             <span className="chip">Official Link</span>
             <h2>Apply sirf official website se karein</h2>
             <p>
-              Form bharne se pehle notification, eligibility, fee aur dates official website par
-              verify kar lein.
+              Yojna form bharne se pehle eligibility, documents, benefit details aur dates official
+              website par verify kar lein.
             </p>
           </div>
-          <a href={job.officialLink} rel="noreferrer" target="_blank">
-            {job.applyText}
+          <a href={scheme.officialLink} rel="noreferrer" target="_blank">
+            {scheme.actionText}
             <ExternalLink size={16} />
           </a>
           <Link href="/">
@@ -162,25 +169,25 @@ export default async function NaukriDetailsPage({
   );
 }
 
-function buildDetails(job: Job) {
+function buildDetails(scheme: Scheme) {
   return {
-    intro: `Namaskar dosto, aaj hum baat kar rahe hain ${job.title} ke baare me. ${job.org} ki taraf se ye update aaya hai, aur isme ${job.vacancies} ke liye candidates ko chance mil raha hai.`,
+    intro: `Namaskar dosto, aaj hum baat kar rahe hain ${scheme.title} ke baare me. ${scheme.org} ki taraf se ye update aaya hai, aur eligible applicants is yojna ka benefit official process se le sakte hain.`,
     sections: [
       {
         title: "Aaj Ki Main Update",
-        body: `${job.body} Agar aap ${job.type.toLowerCase()} ki taiyari kar rahe hain, to ye update aapke liye important ho sakta hai. Is page me qualification, age limit, fee, dates aur apply process simple language me diya gaya hai.`
+        body: `${scheme.body} Agar aap ${scheme.state} se related government scheme updates dekh rahe hain, to ye yojna important ho sakti hai. Is page me benefit, eligibility, documents, status aur apply process simple language me diya gaya hai.`
       },
       {
         title: "Kaun Apply Kar Sakta Hai",
-        body: `Is vacancy ke liye qualification hai: ${job.qualification} Age limit: ${job.ageLimit} Apply karne se pehle apni category aur document details official notification se match kar lena zaroori hai.`
+        body: `${scheme.summary} Apply karne se pehle applicant ko apni eligibility, state, category, income ya student/beneficiary details official portal par verify kar leni chahiye.`
       },
       {
-        title: "Fee Aur Form Bharne Se Pehle",
-        body: `Application fee detail: ${job.fee} Form submit karne se pehle name, date of birth, category, photo, signature aur document upload clearly check kar lein, kyunki galat detail se form reject ho sakta hai.`
+        title: "Documents Aur Form Bharne Se Pehle",
+        body: `Form submit karne se pehle name, mobile number, Aadhaar, bank details, residence proof, income/category certificate ya education documents carefully check kar lein. Galat detail se application reject ya verification delay ho sakta hai.`
       },
       {
         title: "Final Advice",
-        body: `Last date ${job.date} di gayi hai. End moment ka wait mat karein, kyunki website slow ya payment issue aa sakta hai. Pehle official notification padhein, phir hi application submit karein.`
+        body: `Current status: ${scheme.date}. End moment ka wait mat karein, kyunki portal slow ya verification issue aa sakta hai. Pehle official notice padhein, phir hi application ya status check karein.`
       }
     ]
   };

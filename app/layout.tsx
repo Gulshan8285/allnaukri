@@ -93,7 +93,7 @@ const websiteJsonLd = {
         { "@type": "SiteNavigationElement", position: 1, name: "All Sarkari Naukri", url: `${siteUrl}/sarkari-naukri` },
         { "@type": "SiteNavigationElement", position: 2, name: "Sarkari Yojna", url: `${siteUrl}/sarkari-yojna` },
         { "@type": "SiteNavigationElement", position: 3, name: "All Result", url: `${siteUrl}/results` },
-        { "@type": "SiteNavigationElement", position: 4, name: "All Jobs Details", url: `${siteUrl}/vlog` }
+        { "@type": "SiteNavigationElement", position: 4, name: "Sarkari Yojna Details", url: `${siteUrl}/vlog` }
       ]
     }
   ]

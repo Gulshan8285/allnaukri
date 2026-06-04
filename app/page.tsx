@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { jobs } from "./jobs";
+import { schemes } from "./updates";
 
 export const metadata = {
   title: "All Naukri - All Jobs, All Sarkari Naukri and All Result Updates",
@@ -115,26 +116,26 @@ export default function Home() {
       </DashboardSection>
 
       <DashboardSection
-        title="Latest Naukri Details"
-        subtitle="Job update ko complete details format me padhein"
+        title="Sarkari Yojna Details"
+        subtitle="Yojna update ko complete details format me padhein"
         icon={<BookOpen size={19} />}
       >
         <div className="cardRail blogRail">
-          {jobs.map((job) => (
-            <Link className="jobCardLink" href={`/naukri-details/${job.slug}`} key={job.slug}>
+          {schemes.map((scheme) => (
+            <Link className="jobCardLink" href={`/naukri-details/${scheme.slug}`} key={scheme.slug}>
               <article className="blogCard">
                 <div className="blogArt">
-                  <FileText size={32} />
+                  <Gift size={32} />
                 </div>
                 <div className="blogBody">
-                  <span>{job.type}</span>
-                  <h3>{job.title} Full Details</h3>
-                  <p>{job.body} Eligibility, dates, fee aur apply process simple language me.</p>
+                  <span>{scheme.type}</span>
+                  <h3>{scheme.title} Details</h3>
+                  <p>{scheme.summary} Eligibility, benefits, documents aur apply process simple language me.</p>
                   <footer>
-                    <small>{job.org}</small>
+                    <small>{scheme.org}</small>
                     <small>
                       <CalendarDays size={12} />
-                      {job.date}
+                      {scheme.date}
                     </small>
                   </footer>
                 </div>

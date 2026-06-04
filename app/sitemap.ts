@@ -19,8 +19,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/disclaimer"
   ];
 
-  const jobRoutes = jobs.flatMap((job) => [`/naukri/${job.slug}`, `/naukri-details/${job.slug}`]);
-  const schemeRoutes = schemes.map((scheme) => `/sarkari-yojna/${scheme.slug}`);
+  const jobRoutes = jobs.map((job) => `/naukri/${job.slug}`);
+  const schemeRoutes = schemes.flatMap((scheme) => [
+    `/sarkari-yojna/${scheme.slug}`,
+    `/naukri-details/${scheme.slug}`
+  ]);
   const resultRoutes = results.map((result) => `/results/${result.slug}`);
   const now = new Date();
 

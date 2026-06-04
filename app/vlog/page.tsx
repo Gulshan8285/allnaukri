@@ -1,12 +1,12 @@
-import { BookOpen, CalendarDays, FileText } from "lucide-react";
+import { BookOpen, CalendarDays, Gift } from "lucide-react";
 import Link from "next/link";
-import { jobs } from "../jobs";
+import { schemes } from "../updates";
 
 export const metadata = {
-  title: "All Jobs Details - Latest Naukri Updates and Guides",
+  title: "Sarkari Yojna Details - Government Scheme Guides",
   description:
-    "Read All Jobs details, latest Naukri updates, eligibility, dates, fees and official apply process on All Naukri.",
-  keywords: ["All Jobs", "All Naukri", "Naukri Details", "Sarkari Naukri Details"],
+    "Read Sarkari Yojna details, eligibility, benefits, required documents, status and official apply process on All Naukri.",
+  keywords: ["Sarkari Yojna Details", "Sarkari Yojna", "Government Schemes", "All Naukri"],
   alternates: {
     canonical: "/vlog"
   }
@@ -21,27 +21,27 @@ export default function VlogPage() {
         </span>
         <div>
           <span className="chip">Vlog</span>
-          <h1>Latest Naukri Details</h1>
-          <p>Job updates ko complete details format me padhein.</p>
+          <h1>Sarkari Yojna Details</h1>
+          <p>Yojna updates ko complete details format me padhein.</p>
         </div>
       </section>
 
-      <section className="container vlogGrid" aria-label="Latest Naukri Details">
-        {jobs.map((job) => (
-          <Link className="jobCardLink" href={`/naukri-details/${job.slug}`} key={job.slug}>
+      <section className="container vlogGrid" aria-label="Sarkari Yojna Details">
+        {schemes.map((scheme) => (
+          <Link className="jobCardLink" href={`/naukri-details/${scheme.slug}`} key={scheme.slug}>
             <article className="blogCard">
               <div className="blogArt">
-                <FileText size={32} />
+                <Gift size={32} />
               </div>
               <div className="blogBody">
-                <span>{job.type}</span>
-                <h3>{job.title} Full Details</h3>
-                <p>{job.body} Eligibility, dates, fee aur apply process simple language me.</p>
+                <span>{scheme.type}</span>
+                <h3>{scheme.title} Details</h3>
+                <p>{scheme.summary} Eligibility, benefits, documents aur apply process simple language me.</p>
                 <footer>
-                  <small>{job.org}</small>
+                  <small>{scheme.org}</small>
                   <small>
                     <CalendarDays size={12} />
-                    {job.date}
+                    {scheme.date}
                   </small>
                 </footer>
               </div>
